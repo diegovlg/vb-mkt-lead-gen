@@ -1,0 +1,55 @@
+/*
+General
+*/
+.vibra-whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 25px;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.vibra-whatsapp-button:hover {
+    opacity: 0.9;
+}
+
+.vibra-whatsapp-button svg {
+    margin-right: 8px;
+}
+
+/*
+Form
+*/
+.vibra-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.vibra-form input[type="text"],
+.vibra-form input[type="email"],
+.vibra-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.vibra-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.vibra-form button:hover {
+    background-color: #45a049;
+}

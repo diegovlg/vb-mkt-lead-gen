@@ -1,0 +1,15 @@
+.vibra-marketing-admin-wrapper {
+    max-width: 800px;
+}
+
+.vibra-marketing-admin-wrapper h2 {
+    margin-bottom: 20px;
+}
+
+.vibra-marketing-admin-wrapper .form-table th {
+    width: 200px;
+}
+
+.vibra-marketing-admin-wrapper .color-picker {
+    width: 80px;
+}
