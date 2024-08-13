@@ -110,6 +110,10 @@ class Vibra_Marketing {
 
         require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-vibra-marketing-form.php';
 
+        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-vibra-marketing-analytics.php';
+
+        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-vibra-marketing-subscription.php';
+
 
         $this->loader = new Vibra_Marketing_Loader();
 
@@ -156,6 +160,13 @@ class Vibra_Marketing {
         // Save/Update our plugin options
         $this->loader->add_action('admin_init', $plugin_admin, 'options_update');
 
+        $plugin_analytics = new Vibra_Marketing_Analytics($this->get_plugin_name());
+        $this->loader->add_action('admin_init', $plugin_analytics, 'track_installation');
+
+        $plugin_admin = new Vibra_Marketing_Admin($this->get_plugin_name(), $this->get_version());
+        $this->loader->add_action('admin_init', $plugin_admin, 'handle_admin_subscription');
+        $this->loader->add_action('admin_init', $plugin_admin, 'register_mailchimp_settings');
+   
     }
 
     /**
@@ -174,6 +185,14 @@ class Vibra_Marketing {
 
         // Add WhatsApp button to footer
         $this->loader->add_action( 'wp_footer', $plugin_public, 'add_whatsapp_button_to_footer' );
+
+        $plugin_analytics = new Vibra_Marketing_Analytics($this->get_plugin_name());
+        $this->loader->add_action('wp_ajax_vibra_whatsapp_click', $plugin_analytics, 'track_whatsapp_click');
+        $this->loader->add_action('wp_ajax_nopriv_vibra_whatsapp_click', $plugin_analytics, 'track_whatsapp_click');
+
+        $plugin_subscription = new Vibra_Marketing_Subscription($this->get_plugin_name());
+        $this->loader->add_action('init', $plugin_subscription, 'register_shortcode');
+        $this->loader->add_action('init', $plugin_subscription, 'handle_subscription');
 
     }
 

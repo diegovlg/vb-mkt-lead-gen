@@ -56,4 +56,10 @@ class Vibra_Marketing_Public {
 
         return $content;
     }
+
+    public function track_whatsapp_click() {
+        $analytics = new Vibra_Marketing_Analytics($this->plugin_name);
+        $analytics->track_whatsapp_click();
+        wp_die();
+    }
 }

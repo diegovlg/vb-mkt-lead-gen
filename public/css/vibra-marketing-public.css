@@ -5,23 +5,33 @@ General
     position: fixed;
     bottom: 20px;
     right: 20px;
+    z-index: 9999;
+    background-color: #25D366;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
     padding: 10px 15px;
-    border-radius: 25px;
-    color: #ffffff;
     text-decoration: none;
     font-family: Arial, sans-serif;
-    font-size: 14px;
     transition: all 0.3s ease;
 }
 
 .vibra-whatsapp-button:hover {
     opacity: 0.9;
+    background-color: #128C7E;
 }
 
 .vibra-whatsapp-button svg {
     margin-right: 8px;
+    width: 36px;
+    height: 36px;
 }
 
 /*
@@ -52,4 +62,17 @@ Form
 
 .vibra-form button:hover {
     background-color: #45a049;
+}
+
+@media screen and (max-width: 767px) {
+    .vibra-whatsapp-button {
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+    }
+
+    .vibra-whatsapp-button svg {
+        width: 30px;
+        height: 30px;
+    }
 }

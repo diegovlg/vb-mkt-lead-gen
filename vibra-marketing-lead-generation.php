@@ -4,7 +4,7 @@
  * Plugin URI: https://vibra.marketing/
  * Description: A powerful plugin for lead generation and tracking through WhatsApp and contact forms.
  * Version: 1.0.0
- * Author: Diego Lerma + Claude & Gemini
+ * Author: Vibra Digital (Diego Lerma)
  * Author URI: https://diegolerma.info
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
@@ -48,12 +48,17 @@ register_deactivation_hook(__FILE__, 'deactivate_vibra_marketing');
  */
 require VIBRA_MARKETING_PLUGIN_DIR . 'includes/class-vibra-marketing.php';
 
+function vibra_marketing_load_textdomain() {
+    load_plugin_textdomain('vibra-marketing-lead-generation', false, dirname(plugin_basename(__FILE__)) . '/languages/');
+}
+
+add_action('plugins_loaded', 'vibra_marketing_load_textdomain');
+
 /**
  * Begins execution of the plugin.
  */
 function run_vibra_marketing() {
     $plugin = new Vibra_Marketing();
-    //echo "<p>Starting</p>";
     $plugin->run();
 }
 

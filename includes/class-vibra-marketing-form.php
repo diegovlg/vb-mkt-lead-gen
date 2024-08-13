@@ -38,7 +38,14 @@ class Vibra_Marketing_Form {
     public function handle_form_submission() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vibra_contact_form_nonce'])) {
             if (!wp_verify_nonce($_POST['vibra_contact_form_nonce'], 'vibra_contact_form')) {
-                wp_die('Invalid nonce specified', 'Error', array(
+                wp_die('Security check failed / Invalid nonce specified', 'Error', array(
+                    'response' => 403,
+                    'back_link' => true,
+                ));
+            }
+
+            if (!current_user_can('read')) {
+                wp_die('You do not have sufficient permissions to perform this action', 'Error', array(
                     'response' => 403,
                     'back_link' => true,
                 ));
@@ -53,6 +60,10 @@ class Vibra_Marketing_Form {
 
             // Send email
             $this->send_email($name, $email, $message);
+
+            // Track form submission
+            $analytics = new Vibra_Marketing_Analytics($this->plugin_name);
+            $analytics->track_form_submission();
 
             // Redirect to thank you page or show success message
             wp_redirect(add_query_arg('vibra_form_submitted', 'true', wp_get_referer()));

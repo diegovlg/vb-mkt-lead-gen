@@ -2,7 +2,25 @@
     'use strict';
 
     $(function() {
-        $('.vibra-whatsapp-button').on('click', function(e) {
+        var $window = $(window);
+        var $whatsappButton = $('.vibra-whatsapp-button');
+
+        function checkWhatsAppButtonVisibility() {
+            var windowHeight = $window.height();
+            var scrollTop = $window.scrollTop();
+
+            if (scrollTop > windowHeight * 0.5 && !$whatsappButton.is(':visible')) {
+                $whatsappButton.fadeIn();
+            } else if (scrollTop <= windowHeight * 0.5 && $whatsappButton.is(':visible')) {
+                $whatsappButton.fadeOut();
+            }
+        }
+
+        $window.on('scroll', checkWhatsAppButtonVisibility);
+        checkWhatsAppButtonVisibility();
+
+//        $('.vibra-whatsapp-button').on('click', function(e) {
+        $whatsappButton.on('click', function(e) {
             // GTM event
             if (typeof dataLayer !== 'undefined') {
                 dataLayer.push({
@@ -21,11 +39,15 @@
                 });
             }
 
+            $.post(ajaxurl, {
+                action: 'vibra_whatsapp_click'
+            });
+
             console.log('WhatsApp button clicked');
         });
 
          // Form submission event
-        $('#vibra-contact-form').on('submit', function(e) {
+        $('#vibra-contact-form, #vibra-subscription-form').on('submit', function(e) {
             if (typeof dataLayer !== 'undefined') {
                 dataLayer.push({
                     'event': 'vibra_form_submit',
@@ -41,5 +63,4 @@
             }
         });
     });
-
 })(jQuery);

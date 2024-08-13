@@ -1,15 +1,158 @@
-.vibra-marketing-admin-wrapper {
-    max-width: 800px;
+.vibra-marketing-admin-wrapper
+{
+    max-width:800px
 }
 
-.vibra-marketing-admin-wrapper h2 {
-    margin-bottom: 20px;
+.vibra-marketing-admin-wrapper h2
+{
+    margin-bottom:20px
 }
 
-.vibra-marketing-admin-wrapper .form-table th {
-    width: 200px;
+.vibra-marketing-admin-wrapper .form-table th
+{
+    width:200px
 }
 
-.vibra-marketing-admin-wrapper .color-picker {
-    width: 80px;
+.vibra-marketing-admin-wrapper .color-picker
+{
+    width:80px
+}
+
+.analytics-dashboard
+{
+    display:flex;
+    justify-content:space-between;
+    margin-top:20px
+}
+
+.analytics-card
+{
+    background:#fff;
+    border:1px solid #ccd0d4;
+    box-shadow:0 1px 1px #0000000a;
+    padding:20px;
+    text-align:center;
+    width:30%
+}
+
+.analytics-number
+{
+    font-size:36px;
+    font-weight:700;
+    margin:10px 0
+}
+
+.vibra-newsletter-box
+{
+    background:#fff;
+    border:1px solid #ccd0d4;
+    box-shadow:0 1px 1px #0000000a;
+    margin-top:20px;
+    max-width:600px;
+    padding:20px
+}
+
+.vibra-newsletter-box h2
+{
+    margin-top:0
+}
+
+.vibra-newsletter-box .form-group
+{
+    margin-bottom:15px
+}
+
+.vibra-newsletter-box label
+{
+    display:block;
+    margin-bottom:5px
+}
+
+.vibra-newsletter-box input[type="email"]
+{
+    max-width:400px;
+    width:100%
+}
+
+.vibra-newsletter-box .description
+{
+    font-style:italic;
+    margin-bottom:15px
+}
+
+.vibra-admin-wrapper
+{
+    margin:20px auto;
+    max-width:800px
+}
+
+.vibra-admin-header
+{
+    background:#fff;
+    border:1px solid #ccd0d4;
+    box-shadow:0 1px 1px #0000000a;
+    margin-bottom:20px;
+    padding:20px
+}
+
+.vibra-admin-header h1
+{
+    font-size:23px;
+    font-weight:400;
+    line-height:1.3;
+    margin:0;
+    padding:0
+}
+
+.vibra-admin-content
+{
+    background:#fff;
+    border:1px solid #ccd0d4;
+    box-shadow:0 1px 1px #0000000a;
+    padding:20px
+}
+
+.vibra-form-table
+{
+    width:100%
+}
+
+.vibra-form-table th
+{
+    font-weight:600;
+    line-height:1.3;
+    padding:20px 10px 20px 0;
+    width:200px
+}
+
+.vibra-form-table td
+{
+    line-height:1.3;
+    padding:15px 10px;
+    vertical-align:middle
+}
+
+.vibra-admin-button
+{
+    background:#0085ba;
+    border-color:#0073aa #006799 #006799;
+    border-radius:3px;
+    border-style:solid;
+    border-width:1px;
+    box-shadow:0 1px 0 #006799;
+    color:#fff;
+    cursor:pointer;
+    display:inline-block;
+    font-size:13px;
+    height:28px;
+    line-height:26px;
+    padding:0 10px 1px;
+    text-decoration:none;
+    text-shadow:0 -1px 1px #006799,1px 0 1px #006799,0 1px 1px #006799,-1px 0 1px #006799
+}
+
+.vibra-admin-button:hover
+{
+    background:#008ec2;
+    border-color:#006799
 }
